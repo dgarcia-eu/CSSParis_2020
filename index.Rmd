@@ -399,6 +399,7 @@ knitr::include_graphics("figures/Dashboard2.png")
 <div style="font-size:15pt"> 
 Paper: [Dashboard of Sentiment in Austrian Social Media During COVID-19. Frontiers in Big Data. Pellert et al. (2020)](https://www.frontiersin.org/articles/10.3389/fdata.2020.00032/full)  
 Dashboard: https://mpellert.at/covid19_monitor_austria
+
 ---
 
 background-size: 50%
@@ -420,7 +421,7 @@ https://twitter.com/dgarcia_eu/status/1324097342551842817
 
 class:center
 
-# By the Computational Social Science Lab
+## By the Computational Social Science Lab
 
 ```{r, echo=FALSE, out.width=1200}
 knitr::include_graphics("figures/CSSLab-2020.png")
