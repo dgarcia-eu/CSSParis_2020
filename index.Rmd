@@ -1,391 +1,428 @@
 ---
-title: "Xaringan example"
-subtitle: "RU template"
-author: "Joseph V. Casillas"
-date: "Rutgers University </br> `r Sys.Date()`"
+title: "Computational Social Science"
+subtitle: "Studying Human Behavior through Digital Traces"
+author: "David Garcia <br> *TU Graz, Complexity Science Hub Vienna*"
+date: "Slides vailable at: dgarcia.eu/cssparis2020"
 output:
   xaringan::moon_reader:
-    lib_dir: libs
-    css: ["https://www.jvcasillas.com/ru_xaringan/css/rutgers.css", "https://www.jvcasillas.com/ru_xaringan/css/rutgers-fonts.css"]
+    lib_dir: libs 
+    css: [xaringan-themer.css, "libs/footer.css"]
     nature:
-      beforeInit: ["https://www.jvcasillas.com/ru_xaringan/js/ru_xaringan.js"]
+      beforeInit: ["libs/perc.js"]
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
 ---
 
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#This block contains the theme configuration for the CSS lab slides style
+library(xaringanthemer)
+library(showtext)
+style_mono_accent(
+  base_color = "#5c5c5c",
+  text_font_size = "1.5rem",
+  header_font_google = google_font("Arial"),
+  text_font_google   = google_font("Arial", "300", "300i"),
+  code_font_google   = google_font("Fira Mono")
+)
+```
+
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
-background-size: 100%
-background-image: url(https://media.giphy.com/media/94iS62lx8CRQA/giphy.gif)
 
-???
-
-Image test. Taken from google. 
+layout: true
+<div class="my-footer"><span>David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna</span></div> 
 
 ---
-
-# IPA symbols work in unicode
-
-## /ʃæ.'riŋ.ɡæn/
-
-### /θðszʃʒʂʐçʝʎʟɘɵəɜ/  
-
-#### e̪a̺u̯
-
-|     Word    | Phonological transcription | Phonetic transcription |
-| :---------- | -------------------------- | ---------------------- |
-| casa        | /ˈka.sa/                   | [ˈka.sa]               |
-| taco (Sp.)  | /ˈta.ko/                   | [ˈta.ko]               |
-| taco (Eng.) | /ˈta.ko/                   | [ˈt<sup>h</sup>a.ko]   |
-
-
----
-
-# Standard slide with R code
-
-```{r, fig.height=4.5, fig.width=12, fig.retina=2, fig.align='center', message=FALSE, warning=FALSE}
-library(tidyverse)
-ggplot(cars, aes(x = dist, y = speed)) + 
-  geom_point() + 
-{{ geom_smooth(method = 'lm', formula = y ~ poly(x, 2))}} # we can highlight lines of code 
-```
-
----
-
-# Slide basics
-
-- Unordered lists
-  - can be created using "-"
-  - and they can be nested using 2 or 4 spaces
-- We can also make `blockquotes`
-  - we can use `<ru-blockquote>text</ru-blockquote>` 
-  - or `>`
-
-<ru-blockquote>This is a blocked quote</ru-blockquote>
-
-- Footnotes<sup>1</sup>
-
-.footnote[
-[1] Information here.
-]
-
----
-
-# More basics
-
-### Ordered list
-
-1. one
-2. two 
-3. three
-
---
-
-- Spaced
-
---
-
-- List
-
---
-
-- with increments
-
---
-
-An incremental 
---
-sentence with 
---
-separation.
-
----
-background-image: url(`r xaringan:::karl`)
-background-position: 50% 50%
-class: center, bottom, inverse
-
-# You only live once!
-
----
-background-image: url(http://www.jvcasillas.com/ru_xaringan/img/logo/ru_shield2.png)
-background-position: 90% 50%
-background-size: 300pt
-
-# Another example
-
-### Lists to the left
-
-- We can place images
-- anywhere on the screen
-- by using **background-image**
-- in conjunction with 
-- **background-position**
-
-### Image to the right
-
-- This can replicate my 'float right' hack
-- We can control the 
-- size of the image
-- by using the 
-- **background-size** option
-
----
-class: center, middle
-
-# Text adjustments
-
---
-
-It is also possible to change the .blue[color] of any  
-text by using... 
-
---
-
-    .color[text here]
-
---
-
-For example
-
---
-
-    .grey[grey]
-
---
-
-will make text .grey[grey]
-
---
-
-We can do this with white, .grey[grey], .black[black], .RUred[red] and .blue[blue]. 
-
---
-
-To really make text stand out we can just use \*\*text\*\* like **this**.
-
----
-
-# Two columns!
+class:center
+# About me
 
 .pull-left[
-
-### Some things on the left
-
-1. List of things
-
-1. Plain Markdown;
-
-1. blah blah
-
-1. Plain Markdown;
-
+```{r, echo=FALSE, out.width=270}
+knitr::include_graphics("figures/Profile.jpg")
+```
 ]
-
---
 
 .pull-right[
+<br>
+Website: [dgarcia.eu](https://dgarcia.eu)
 
-### and other things on the right
+Twitter: [@dgarcia_eu](https://twitter.com/dgarcia_eu)
 
-1. We do this by using the 
+Github: [dgarcia-eu](https://github.com/dgarcia-eu)
 
-1. \.pull-left[] and \.pull-right[]
-
-1. commands. Just put any text inside the 
-
-1. brackets and you're good to go
-
+Email: garcia@csh.ac.at
 ]
+
+Professor for Computational Behavioral and Social Sciences at TU Graz
+<br>Faculty member of the Complexity Science Hub Vienna
+<br>Group leader at the Medical University of Vienna
+<br>Privatdozent at ETH Zurich, teaching Social Data Science
 
 ---
 
-# R code and highlighting (I never use this)
+
+# Computational Social Science
+
+> Quantitative testing theories from the social sciences at unprecedented 
+breadth and depth and scale.                      (Lazer et. al. Science, 2009)
 
 .pull-left[
-An example using a leading `*`:
+- Quantitative and empirical, <br>
+not just theoretical
 
-    ```r
-    if (TRUE) {
-    ** message("Very important!")
-    }
-    ```
-Output:
-```r
-if (TRUE) {
-* message("Very important!")
-}
-```
+- Not data-driven studies: interdisciplinary research
 
-This is invalid R code, so it is a plain fenced code block that is not executed.
+- *Related but not the same as Big Data, Data Science, Web Science, Digital Sociology, Human-Computer Interaction...*
 ]
 
 .pull-right[
-An example using `{{}}`:
-
-    `r ''````{r tidy=FALSE}
-    if (TRUE) {
-    *{{ message("Very important!") }}
-    }
-    ```
-Output:
-```{r tidy=FALSE}
-if (TRUE) {
-{{ message("Very important!") }}
-}
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/CSS.gif")
 ```
-
-It is valid R code so you can run it.
 ]
 
 ---
-class: middle, bottom
-background-image: url(http://www.jvcasillas.com/ru_xaringan/img/logo/ru_shield.png)
-background-size: contain
 
-### <grey>You can</grey>  
-### <grey>fill the</grey>  
-### <grey>screen with </grey>  
-### **background-size: contain**
 
----
+## *Computational* in Computational Social Science
+It can have three meanings:
 
-# Macros
+- **Digital**<br> 
+Based on large datasets of human behavior, for example produced by the Web and social media
 
-- We can insert javascript macros into our presentations
-- For example, if we put the following code into `macros.js`...
+- **Computerized**<br>
+The quantitative analysis of data in an automated, tractable, repeatable, and extensible fashion
 
-```js
-remark.macros.scale = function (percentage) {
-  var url = this;
-  return '<img src="' + url + '" style="width: ' + percentage + '" />';
-};
-```
-
-- ...we can use the markdown call to resize images...
-
-```md
-![:scale 25%](../img/logo/ru_shield2.png)
-```
-
-- These calls can also be put inside html divs so as to control where they appear. 
-
-<div align="center">
-![:scale 20%](../img/logo/ru_shield2.png)
-</div>
-
-- All we need to do is include `beforeInit: "macros.js"` under nature in our YAML front matter
+- **Generative**<br>
+Application of data and results to design of agent-based models that explain complex social phenomena and motivate interventions
 
 ---
 
-# RU stuff
+## New Data for the Social and Behavioral Sciences
+<br>
+- **Big Data:** Observing large and diverse sets of humans
 
-### General
+- **Fast Data:** Quantifying human behavior in real time
 
-- The theme was designed to work with a 16:9 aspect ratio
-- Set the aspect ratio under the **nature** output parameter...  
-    nature:  
-      &nbsp; &nbsp; ratio: "16:9"
+- **Long Data:** Retrieving longitudinal data and at various timescales
+
+- **Deep Data:** Gathering persistent information on individuals
+
+- **Mixed Data:** Combining heterogeneous and unstructured data
+
+- **Weird Data:** Analyzing behavior unobservable in experiments or surveys
+
+---
 
 
-### Sections
+## Strengths and weaknesses of digital trace data
 
-- We can create section dividers with RU red and grey by using the `class` call:
+**Strengths:**
+- Complementary approach to traditional survey and experimental methods
+- Unprecedented scales and granularities
+- Ease of data access, replicability of results
+- Potentially high external validity, behavior in vivo
 
-```md
-class: title-slide-section-red
-```
+**Weaknesses:**
+- Limits to internal validity: Lack of counterfactuals hinders causal analysis
+- Self-selection bias: Who talks? Normalization issues: Who is silent?
+- Data gatekeepers, Twitter as a model organism
+- Intractability of black-box predictions and data piñatas
 
-or 
+<div style="font-size:15pt">
+[Sen et al. (2019). A Total Error Framework for Digital Traces of Humans.](https://arxiv.org/abs/1907.08228)<br>
+[Olteanu et al. (2019). Social Data: Biases, Methodological Pitfalls, and Ethical Boundaries.](https://www.frontiersin.org/articles/10.3389/fdata.2019.00013/full)
 
-```md
-class: title-slide-section-grey
+---
+
+# Avoid making a data piñata
+
+```{r, echo=FALSE, out.width=1050}
+knitr::include_graphics("figures/pinata.png")
 ```
 
 ---
-class: title-slide-section-red
 
-# RU red section divider
+# "Interdisciplinarity" in CSS
 
-### This is the H3 font color
-
-- Our text goes here
-
-- We can use **bold**
-
-- and .blue[blue]
-
-- and also .grey[grey]
-
----
-class: title-slide-section-grey
-
-# RU grey section divider
-
-### This is the H3 font color
-
-- Our text goes here
-
-- We can use **bold**
-
-- and .blue[blue]
-
-- and also .black[black]
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/Venn.jpg")
+```
 
 ---
 
-# Tables
+# *Interdisciplinarity* in CSS
 
-### Centering
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/VennVision.jpg")
+```
 
-- Tables are centered by default in **xaringan**. 
-- We can override this using...
+---
 
-    .pull-left[], .pull-right[], etc. 
+# Research lines at CSS Lab
 
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/Topics.png")
+```
+
+---
+
+# Computational Affective Science
+
+**Computational Affective Science:** Combining big social data and computational modeling to understand affective life and emotional well-being
+
+<center>
+Topic of WWTF Complexity Science Vienna Research Group (1.6M Euro)  
+<br>
+```{r, echo=FALSE, out.width=700}
+knitr::include_graphics("figures/VRG.png")
+```
+
+---
+
+
+## Examples of Computational Affective Science
+
+.pull-left[
+```{r, echo=FALSE, out.width=600}
+knitr::include_graphics("figures/TwitterMood.jpg")
+```
+Mood expression oscillates in Twitter
+]
 
 .pull-right[
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/TwitterHeart.png")
+```
+Affect in Twitter and heart diseaes
+]
 
-|  This |  is |   a    |    Table     |
-| :---- | :-- | :----- | :----------: |
-| It is | now | pulled | to the right |
-| 12    | 34  | 56     |      78      |
+<div style="font-size:14pt">
+[Diurnal and Seasonal Mood Vary with Work, Sleep, and Daylength Across Diverse Cultures. S. Golder, M. Macy. Science, 2011](https://science.sciencemag.org/content/333/6051/1878)<br>
+[Psychological language on Twitter predicts county-level heart disease mortality. J. Eichstaedt et. al. Psychological Science, 2015](https://journals.sagepub.com/doi/10.1177/0956797614557867)
+---
 
+## The Social Function of Collective Emotions
+
+<center>
+```{r, echo=FALSE, out.width=900}
+knitr::include_graphics("figures/ColectiveEmotions.png")
+```
+</center>
+
+- **Theory of collective effervescence (Durkheim, 1912):**
+Shared emotions generate social identity, reinforce shared beliefs, and lead to higher solidarity
+
+- **Collective emotions (von Scheve and Salmela, 2014):**   
+Emotional states shared by a large amount of people at the same time
+
+
+---
+
+background-size: 40%
+background-image: url(figures/Trauma.png)
+background-position: 90% 60%
+
+
+## Emotional Responses to Collective Traumas
+
+**How do societies respond to traumatic events?**  
+**Is there a social function of collective emotions?**
+.pull-left[
+- Emotional synchronization: Experience of simultaneous negative emotions
+
+- Collective emotion lasts longer than individual emotional reactions
+
+- Individuals that participate in the collective emotions show higher levels of long-term solidarity ]
+
+---
+
+## Twitter Digital Traces after a Terrorist Attack
+
+Focus on Paris Attacks of of Nov 13, 2015  
+Removed bots, news media, and organizations. Final sample of 62,114 users  
+Retrieved historical timeline of users. Total of more than 27 Million tweets (no RT)
+<center>
+```{r, echo=FALSE, out.width=900}
+knitr::include_graphics("figures/ParisCase.png")
+```
+
+---
+
+## Linguistic Signals
+
+**Linguistic Inquiry and Word Count, LIWC (pronounced “Luke”)**  
+- Simple word matching method  
+- Validated by psychologists, years of implementation (2001-2015)  
+- Multiple classes, calibrated for netspeak and neologisms
+
+
+.pull-left[
+```{r, echo=FALSE, out.width=1000}
+knitr::include_graphics("figures/LIWC.png")
+```
+]
+.pull-right[
+**LIWC classes in this study:**  
+Positive Affect, Negative Affect  
+Anxiety, Sadness, Anger  
+Social processes  
+Prosocial terms (Frimer, et. al, 2014)  
+French values (libert*, egalit*, fraternit*)
 ]
 
 ---
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
-background-size: 100px
-background-position: 90% 8%
 
-# xaringan
+## Agent-Based Modelling of Collective Emotions
 
-- Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
+.pull-left[
+```{r, echo=FALSE, out.width=1000}
+knitr::include_graphics("figures/Framework.png")
+```
 
-- You can see all the goodies like this.
+ABM calibrated with experiment data
+- φ: post-shock AR(1) term
+- φ~0: subcritical response
+- φ>0: critical, collective behavior
+]
 
-- Check out more in-depth tutorial [here](https://slides.yihui.name/xaringan/#1)
+.pull-right[
+```{r, echo=FALSE, out.width=450}
+knitr::include_graphics("figures/Simulation.png")
+```
+<center>
+Mean valence in simulations
+</center>
+]
+
+<div style="font-size:14pt">
+[The Dynamics of Emotions in Online Interaction. Garcia et al. Royal Society Open Science 3 (2016)](https://royalsocietypublishing.org/doi/full/10.1098/rsos.160059)
 
 ---
-class: title-slide-final, middle
-background-image: url(https://github.com/jvcasillas/ru_xaringan/raw/master/img/logo/ru_shield.png)
-background-size: 55px
-background-position: 9% 15%
 
-# Thanks!
+## Evidence of Collective Emotions
+<center>
+```{r, echo=FALSE, out.width=750}
+knitr::include_graphics("figures/TS.png")
+```
+</center>
 
-## This is the final slide
+---
 
-### you can add your email, twitter, github, etc. info here
+### Collective Dynamics of Social Resilience Indicators
+<center>
+```{r, echo=FALSE, out.width=720}
+knitr::include_graphics("figures/TS2.png")
+```
+</center>
 
-Here is an example:  
 
-|                                                                                                            |                                   |
-| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| <a href="mailto:joseph.casillas@rutgers.edu">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | joseph.casillas@rutgers.edu       |
-| <a href="http://www.jvcasillas.com/ru_xaringan/slides/index.html">.RUred[<i class="fa fa-link fa-fw"></i>] | jvcasillas.com/ru_xaringan/slides |
-| <a href="http://twitter.com/jvcasill">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @jvcasill                         |
-| <a href="http://github.com/jvcasillas">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @jvcasillas                       |
+---
+
+# Emotional Synchronization Effect
+
+.pull-left[
+<center>
+```{r, echo=FALSE, out.width=470}
+knitr::include_graphics("figures/TS3.png")
+```
+</center>
+]
+
+.pull-right[
+Division of users into two groups based on their emotional expression two weeks after the attacks
+
+Frequency of social process terms:
+- Very similar before the attacks
+- Strong difference after the attacks
+- Difference lasts for months
+
+Similar effect for prosocial terms and shared values terms
+]
+
+---
+
+# Conclusions
+
+- Terrorist attacks trigger collective emotions that we can observe online
+
+- Terms related to social resilience increase after collective emotions
+
+- Individuals expressing stronger emotions used on average more terms related to social processes, prosocial behavior, and shared values
+
+- Collective emotions are not just venting, they can keep us together
+
+- Negative effects: inter-group conflict, intolerance, short-term orientation...
+
+- Online interactive visualization at: http://dgarcia.eu/ParisAttacks.html
+
+[**Collective Emotions and Social Resilience in the Digital Traces After a Terrorist Attack. David Garcia Bernard Rimé. Psychological Science (2019)**](https://journals.sagepub.com/doi/full/10.1177/0956797619831964)
+
+---
+
+class:center
+
+## Appendix: The Vienna terrorist attack of Nov 2nd
+
+<img width=900 src="https://pbs.twimg.com/media/EmAWjtSXUAEd2Wx?format=jpg&name=large">
+
+---
+
+class:center
+
+## Austrian Emotions on Twitter
+
+```{r, echo=FALSE, out.width=900}
+knitr::include_graphics("figures/Dashboard1.png")
+```
+
+<div style="font-size:15pt"> 
+Paper: [Dashboard of Sentiment in Austrian Social Media During COVID-19. Frontiers in Big Data. Pellert et al. (2020)](https://www.frontiersin.org/articles/10.3389/fdata.2020.00032/full)  
+Dashboard: https://mpellert.at/covid19_monitor_austria
+---
+
+class:center
+
+## Austrian Emotions in Der Standard Tickers
+
+```{r, echo=FALSE, out.width=900}
+knitr::include_graphics("figures/Dashboard2.png")
+```
+<div style="font-size:15pt"> 
+Paper: [Dashboard of Sentiment in Austrian Social Media During COVID-19. Frontiers in Big Data. Pellert et al. (2020)](https://www.frontiersin.org/articles/10.3389/fdata.2020.00032/full)  
+Dashboard: https://mpellert.at/covid19_monitor_austria
+---
+
+background-size: 50%
+background-image: url(figures/OpenDoor.gif)
+background-position: 90% 60%
+
+
+## Shelter offerings on Twitter
+
+.pull-left[
+<img width=1000 src="https://pbs.twimg.com/media/EmAbRICXYAA0WqB?format=png&name=large">
+- Number of tweets with hashtags similar to [#Schwedenplatztür](https://twitter.com/hashtag/schwedenplatzt%C3%BCr)
+- More in Twitte thread:
+https://twitter.com/dgarcia_eu/status/1324097342551842817
+]
+
+---
+
+
+class:center
+
+# By the Computational Social Science Lab
+
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("figures/CSSLab-2020.png")
+```
+**Thanks for listening! More at www.dgarcia.eu and [@dgarcia_eu](https://twitter.com/dgarcia_eu)**
